@@ -1,0 +1,73 @@
+API Endpoints
+
+    Register Endpoint
+        Method: POST
+        Path: /register
+        Description: Register a new user with username, password, and email.
+
+        Request Body:
+            username: String (required)
+            password: String (required)
+            email: String (required)
+
+        Response:
+            Status 201: User registered successfully
+            Status 500: Error during registration
+
+
+    Login Endpoint
+        Method: POST
+        Path: /login
+        Description: Log in a user with username and password.
+
+        Request Body
+            username: String (required)
+            password: String (required)
+
+        Response:
+            Status 200: Login successful
+            Status 401: Invalid password
+            Status 404: User not found
+            Status 500: Error during login
+
+
+    WebSocket Endpoint
+        Path: /chat
+        Description: WebSocket endpoint for private chats.
+        Functionality: Allows users to send and receive real-time messages in a private chat.
+        Authorization: Requires a valid JWT token in the request headers.
+
+
+
+
+Setup Instructions
+
+    Install Dependencies:
+        Run `npm install` to install all required dependencies.
+
+    Environment Configuration:
+        Ensure that the configuration file (config.js) contains the necessary configurations for the database, Kafka, Redis, JWT secret key, and server port.
+
+    SSL/TLS Certificate:
+        Provide SSL/TLS certificate and private key files (certificate.crt and private.key) in the certificate directory.
+
+    Start Server:
+        Run `npm start` to start the HTTPS server.
+
+
+
+
+Run Tests
+
+    Install Jest:
+        If Jest is not installed globally, you can install it locally in your project using `npm install --save-dev jest`.
+
+    Run Tests:
+        Execute `npm test` to run all test suites. Jest will automatically look for files with .test.js extension and execute the tests.
+
+    Test Coverage:
+        To generate test coverage reports, you can run `npm test -- --coverage`. This command will generate coverage reports in the coverage directory.
+
+    Review Test Results:
+        After running tests, review the test results in the console. Any failures or errors will be displayed along with the stack trace.
+
